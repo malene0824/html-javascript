@@ -1,0 +1,108 @@
+<style>
+  /* Popup baggrund */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* Selve boksen */
+  .popup-box {
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Luk-knap */
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+  }
+  .popup-close:hover {
+    color: #000;
+  }
+ /* Formular design */
+  .popup-box input[type="email"] {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .popup-box button {
+    background-color: #753055;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+  .popup-box button:hover {
+    background-color: #BEC5AD;
+  }
+  .message {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+.message.success {
+    color: black;
+  }
+  .message.error {
+    color: red;
+  }
+</style>
+
+<!-- Popup struktur -->
+<div class="popup-overlay" id="newsletterPopup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>Tilmeld dig vores nyhedsbrev</h2>
+    <input type="email" id="popupEmail" placeholder="Indtast din e-mail">
+    <button onclick="subscribe()">Tilmeld</button>
+    <div class="message" id="popupMessage"></div>
+  </div>
+</div>
+<script>
+  // Vis popup efter 5 sekunder
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      document.getElementById("newsletterPopup").style.display = "flex";
+    }, 3000);
+  });
+
+  // Luk popup
+  function closePopup() {
+    document.getElementById("newsletterPopup").style.display = "none";
+  }
+// Simpel e-mail validering
+  function subscribe() {
+    const email = document.getElementById('popupEmail').value;
+    const message = document.getElementById('popupMessage');
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!emailPattern.test(email)) {
+      message.textContent = "Ugyldig e-mailadresse.";
+      message.className = "message error";
+      return;
+    }
+   message.textContent = "Tak for din tilmelding!";
+    message.className = "message success";
+    document.getElementById('popupEmail').value = "";
+  }
+</script>
