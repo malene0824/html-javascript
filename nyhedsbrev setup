@@ -1,0 +1,68 @@
+<style>
+  .newsletter-box {
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 3px black;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .newsletter-box h2 {
+    margin-bottom: 15px;
+    color: #000000;
+  }
+  .newsletter-box input[type="email"] {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .newsletter-box button {
+    background-color: #753055;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+ .newsletter-box button:hover {
+    background-color: #BEC5AD;
+  }
+  .message {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .message.success {
+    color: green;
+  }
+  .message.error {
+    color: red;
+  }
+</style>
+<div class="newsletter-box">
+  <h2>Tilmeld dig vores nyhedsbrev</h2>
+  <input type="email" id="email" placeholder="Indtast din e-mail">
+  <button onclick="subscribe()">Tilmeld</button>
+  <div class="message" id="message"></div>
+</div>
+<script>
+  function subscribe() {
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message');
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!emailPattern.test(email)) {
+      message.textContent = "Ugyldig e-mailadresse.";
+      message.className = "message error";
+      return;
+    }
+
+    message.textContent = "Tak for din tilmelding!";
+    message.className = "message success";
+    document.getElementById('email').value = "";
+  }
+</script>
