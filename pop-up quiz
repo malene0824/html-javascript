@@ -1,4 +1,14 @@
 <div id="quiz"></div>
+
+<div class="popup-overlay" id="quizPopup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>Er du klar til den bæredygtige quiz?</h2>
+    <p>Test din viden – klik her for at gå direkte til quizzen!</p>
+    <button onclick="scrollToQuiz()">Start quizzen</button>
+  </div>
+</div>
+
 <style>
   .popup-overlay {
     position: fixed;
@@ -44,15 +54,6 @@
     background-color: #BEC5AD
   }
 </style>
-
-<div class="popup-overlay" id="quizPopup">
-  <div class="popup-box">
-    <span class="popup-close" onclick="closePopup()">&times;</span>
-    <h2>Er du klar til den bæredygtige quiz?</h2>
-    <p>Test din viden – klik her for at gå direkte til quizzen!</p>
-    <button onclick="scrollToQuiz()">Start quizzen</button>
-  </div>
-</div>
 
 <script>
   // Vis popup efter 5 sekunder
