@@ -4,6 +4,7 @@
   <button onclick="subscribe()">Tilmeld</button>
   <div class="message" id="message"></div>
 </div>
+
 <style>
   .newsletter-box {
     background: white;
