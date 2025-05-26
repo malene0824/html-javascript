@@ -1,3 +1,9 @@
+<div class="newsletter-box">
+  <h2>Tilmeld dig vores nyhedsbrev</h2>
+  <input type="email" id="email" placeholder="Indtast din e-mail">
+  <button onclick="subscribe()">Tilmeld</button>
+  <div class="message" id="message"></div>
+</div>
 <style>
   .newsletter-box {
     background: white;
@@ -43,12 +49,7 @@
     color: red;
   }
 </style>
-<div class="newsletter-box">
-  <h2>Tilmeld dig vores nyhedsbrev</h2>
-  <input type="email" id="email" placeholder="Indtast din e-mail">
-  <button onclick="subscribe()">Tilmeld</button>
-  <div class="message" id="message"></div>
-</div>
+
 <script>
   function subscribe() {
     const email = document.getElementById('email').value;
